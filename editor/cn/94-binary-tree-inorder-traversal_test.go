@@ -1,4 +1,4 @@
-//给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+//给定一个二叉树的根节点 root ，返回它的 中序 遍历。
 //
 //
 //
@@ -6,7 +6,7 @@
 //
 //
 //输入：root = [1,null,2,3]
-//输出：[1,2,3]
+//输出：[1,3,2]
 //
 //
 // 示例 2：
@@ -27,7 +27,7 @@
 //
 //
 //输入：root = [1,2]
-//输出：[1,2]
+//输出：[2,1]
 //
 //
 // 示例 5：
@@ -48,9 +48,9 @@
 //
 //
 //
-// 进阶：递归算法很简单，你可以通过迭代算法完成吗？
+// 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
 // Related Topics 栈 树 深度优先搜索 二叉树
-// 👍 630 👎 0
+// 👍 1074 👎 0
 
 package leetcode
 
@@ -65,22 +65,22 @@ import "testing"
  *     Right *TreeNode
  * }
  */
-func preorderTraversal(root *TreeNode) (s []int) {
-	var preorder func(root *TreeNode)
-	preorder = func(root *TreeNode) {
+func inorderTraversal(root *TreeNode) (s []int) {
+	var inorder func(root *TreeNode)
+	inorder = func(root *TreeNode) {
 		if root == nil {
 			return
 		}
+		inorder(root.Left)
 		s = append(s, root.Val)
-		preorder(root.Left)
-		preorder(root.Right)
+		inorder(root.Right)
 	}
-	preorder(root)
+	inorder(root)
 	return s
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
 
-func Test_binaryTreePreorderTraversal(t *testing.T) {
+func Test_binaryTreeInorderTraversal(t *testing.T) {
 
 }

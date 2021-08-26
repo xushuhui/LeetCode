@@ -51,7 +51,7 @@ func search(nums []int, target int) int {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
-func Test_binarySearch(t *testing.T) {
+func Test_binrySearch(t *testing.T) {
 	nums := []int{-1, 0, 3, 5, 9, 12}
-	search(nums, 4)
+	t.Log(search(nums, 4))
 }

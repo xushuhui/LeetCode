@@ -28,8 +28,18 @@ import "testing"
  *     Right *TreeNode
  * }
  */
-func postorderTraversal(root *TreeNode) []int {
-
+func postorderTraversal(root *TreeNode) (s []int) {
+	var postorder func(root *TreeNode)
+	postorder = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		postorder(root.Left)
+		postorder(root.Right)
+		s = append(s, root.Val)
+	}
+	postorder(root)
+	return s
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
